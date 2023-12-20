@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "author": "Abhinand sd",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": -40.25, "left": -4.03, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -248.98,
+      "left": 121.91,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "pir1",
+      "top": -84.52,
+      "left": -154.24,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-ntc-temperature-sensor",
+      "id": "ntc1",
+      "top": 209.54,
+      "left": -155.38,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -51.59,
+      "left": 261.04,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "bz1:1", "esp:GND.1", "green", [ "v0" ] ],
+    [ "bz1:2", "esp:D4", "green", [ "v47.83", "h-160.43", "v-53.33" ] ],
+    [ "pir1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "pir1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "pir1:OUT", "esp:D2", "green", [ "v0" ] ],
+    [ "ntc1:GND", "esp:D15", "black", [ "h0" ] ],
+    [ "ntc1:VCC", "esp:D15", "red", [ "h0" ] ],
+    [ "ntc1:OUT", "esp:D15", "green", [ "h0" ] ],
+    [ "led1:A", "esp:D5", "green", [ "v0" ] ],
+    [ "led1:C", "esp:GND.1", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
